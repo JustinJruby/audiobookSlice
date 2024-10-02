@@ -35,3 +35,5 @@ if [[ -s filelist.txt ]]; then
 else
   echo "No valid files found for merging."
 fi
+
+ffmpeg -i "$output_file" -map 0 -f segment -segment_time 422.4 -b:a 100k -reset_timestamps 1 -c:a aac output_%03d.m4a
