@@ -18,7 +18,7 @@ fi
 
 for mp3file in "$input_dir"/*.mp3; do
   filename=$(basename "$mp3file")
-  output_file="$output_dir/merged.m4a"
+  output_file="$output_dir/$mp3file.m4a"
   ffmpeg -i "$mp3file" -c:a aac -strict experimental -y "$output_file"
   echo "Converted $filename to $output_file"
 done
